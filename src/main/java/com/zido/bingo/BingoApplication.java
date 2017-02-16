@@ -1,7 +1,8 @@
-package com.zido;
+package com.zido.bingo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * bingo.
@@ -11,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author <a href="http://userwu.github.io">wuhongxu</a>.
  * @version 1.0.0
  */
+@EnableTransactionManagement // 启用事务管理
 @SpringBootApplication
 public class BingoApplication {
     public static void main(String[] args) {
