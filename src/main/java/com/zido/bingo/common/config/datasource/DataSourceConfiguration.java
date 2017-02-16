@@ -3,7 +3,6 @@ package com.zido.bingo.common.config.datasource;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.util.StringUtils;
 import com.zido.bingo.common.prop.SourceProperties;
-import org.springframework.boot.bind.RelaxedPropertyResolver;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.ApplicationContextException;
 import org.springframework.context.EnvironmentAware;
@@ -16,7 +15,7 @@ import java.sql.SQLException;
 import java.util.Arrays;
 
 /**
- * bingo.
+ * 数据源配置，使用druid数据库连接池.
  * Date: 2017/2/16 0016
  * Time: 10:12
  *
@@ -25,9 +24,8 @@ import java.util.Arrays;
  */
 @Configuration
 @EnableConfigurationProperties(SourceProperties.class)
-public class DatabaseConfiguration implements EnvironmentAware {
+public class DataSourceConfiguration implements EnvironmentAware {
     private Environment environment;
-    private RelaxedPropertyResolver propertyResolver;
     @Resource
     private SourceProperties sourceProperties;
     /**
@@ -38,12 +36,11 @@ public class DatabaseConfiguration implements EnvironmentAware {
     @Override
     public void setEnvironment(Environment environment) {
         this.environment = environment;
-        this.propertyResolver = new RelaxedPropertyResolver(environment,"spring.datasource.");
     }
 
     @Bean(initMethod = "init",destroyMethod = "close")
     public DruidDataSource getDataSource() throws SQLException {
-        if (StringUtils.isEmpty(propertyResolver.getProperty("url"))) {
+        if (StringUtils.isEmpty(sourceProperties.getUrl())) {
             System.out.println("数据库连接池配置错误，"
                     + " 请检查spring配置文件，当前位置："
                     + Arrays.toString(environment.getActiveProfiles()));

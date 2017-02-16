@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * bingo.
+ * druid数据库连接池配置，加入监控页面.
  * Date: 2017/2/16 0016
  * Time: 1:17
  *
@@ -29,7 +29,8 @@ public class DruidConfig {
         return reg;
     }
 
-    @Bean public FilterRegistrationBean filterRegistrationBean() {
+    @Bean
+    public FilterRegistrationBean filterRegistrationBean() {
         FilterRegistrationBean filterRegistrationBean = new FilterRegistrationBean();
         filterRegistrationBean.setFilter(new WebStatFilter());
         filterRegistrationBean.addUrlPatterns("/*");
