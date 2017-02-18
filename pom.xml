@@ -6,7 +6,15 @@
 
     <groupId>com.zido</groupId>
     <artifactId>bingo</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>bingo-core</module>
+        <module>bingo-web</module>
+        <module>bingo-service</module>
+        <module>bingo-control-template</module>
+        <module>bingo-cache</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
