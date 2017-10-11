@@ -1,0 +1,29 @@
+{
+  "name": "bingo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zidoshare/bingo.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "zido",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zidoshare/bingo/issues"
+  },
+  "homepage": "https://github.com/zidoshare/bingo#readme",
+  "dependencies": {
+    "koa": "^2.3.0"
+  },
+  "devDependencies": {
+    "extract-text-webpack-plugin": "^3.0.1",
+    "webpack": "^3.6.0"
+  }
+}
